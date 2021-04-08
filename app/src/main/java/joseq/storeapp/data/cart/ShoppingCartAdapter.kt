@@ -30,6 +30,7 @@ class ShoppingCartAdapter(var context: Context, var cartItems: List<CartItem>) :
         fun bindItem(cartItem: CartItem) {
             Glide.with(itemView.context)
                 .load(cartItem.product.image)
+                .centerCrop()
                 .into(itemView.product_image)
 
             itemView.product_name.text = cartItem.product.title

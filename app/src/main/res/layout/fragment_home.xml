@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor">
+    android:background="@color/backgroundColor"
+    android:animateLayoutChanges="true">
 
     <SearchView
         android:id="@+id/searchView"
@@ -86,7 +87,7 @@
                 android:layout_marginStart="18dp"
                 android:layout_toStartOf="@+id/total_price"
                 android:layout_toEndOf="@+id/rela_cantidad_in_cart"
-                android:text="Continuar"
+                android:text="Ver carrito"
                 android:textAlignment="center"
                 android:textColor="@color/whiteColor"
                 android:textSize="17sp"

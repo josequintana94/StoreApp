@@ -51,7 +51,6 @@ class HomeFragment : Fragment() {
         }
         setupAdapter()
         setupObserver()
-
     }
 
     private fun setupSearchView() {
@@ -77,6 +76,13 @@ class HomeFragment : Fragment() {
             }
         })
 
+        searchView.setOnQueryTextFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                continueLayout.visibility = View.GONE
+            } else {
+                continueLayout.visibility = View.VISIBLE
+            }
+        }
     }
 
     private fun setupAdapter() {
