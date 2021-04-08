@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import joseq.storeapp.R
@@ -49,10 +50,12 @@ class CartFragment : Fragment() {
         vaciarCarritoTextView.setOnClickListener {
             ShoppingCart.cleanCart()
             Toast.makeText(context, "Eliminaste todos los productos del carrito correctamente", Toast.LENGTH_SHORT).show()
+            activity?.findNavController(R.id.main_nav_fragment)?.popBackStack()
         }
         continueLayout.setOnClickListener {
             ShoppingCart.cleanCart()
             Toast.makeText(context, "Pedido enviado", Toast.LENGTH_SHORT).show()
+            activity?.findNavController(R.id.main_nav_fragment)?.popBackStack()
         }
 
         cartItemsList?.clear()
