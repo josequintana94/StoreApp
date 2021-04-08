@@ -3,9 +3,9 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="4dp"
     android:layout_margin="4dp"
-    android:background="@drawable/rounded_corners">
+    android:background="@drawable/rounded_corners"
+    android:padding="4dp">
 
     <LinearLayout
         android:id="@+id/linearLayoutInfo"
@@ -50,7 +50,9 @@
             android:layout_width="25dp"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
-            android:background="@drawable/button_anim">
+            android:background="@drawable/button_anim"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -64,7 +66,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/display"
+            android:id="@+id/quantity"
             android:layout_width="30dp"
             android:layout_height="match_parent"
             android:background="@android:color/white"
@@ -79,7 +81,9 @@
             android:layout_width="25dp"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
-            android:background="@drawable/button_anim">
+            android:background="@drawable/button_anim"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:layout_width="wrap_content"

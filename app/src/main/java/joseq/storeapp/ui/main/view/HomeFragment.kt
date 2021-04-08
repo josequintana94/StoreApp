@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.GroupAdapter
@@ -27,6 +29,8 @@ class HomeFragment : Fragment() {
     private val viewModel: MainViewModel by activityViewModels()
 
     private lateinit var searchView: SearchView
+    private lateinit var continueLayout: RelativeLayout
+
     var groupAdapter = GroupAdapter<GroupieViewHolder>()
 
     var list: MutableList<Product>? = mutableListOf()
@@ -40,8 +44,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         searchView = view.findViewById(R.id.searchView)!!
+        continueLayout = view.findViewById(R.id.relativeLayoutContinueToCart)
+
+        continueLayout.setOnClickListener {
+            activity?.findNavController(R.id.main_nav_fragment)?.navigate(R.id.action_homeFragment_to_cartFragment)
+        }
         setupAdapter()
         setupObserver()
+
     }
 
     private fun setupSearchView() {
