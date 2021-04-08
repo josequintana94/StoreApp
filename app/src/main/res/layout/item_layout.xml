@@ -17,14 +17,12 @@
             android:id="@+id/imageViewProduct"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:padding="4dp"
-            android:src="@drawable/down_arrow" />
+            android:padding="4dp" />
 
         <TextView
             android:id="@+id/textViewProductName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:maxLines="2"
             android:textSize="12sp" />
 
@@ -94,4 +92,12 @@
                 android:textSize="20sp" />
         </RelativeLayout>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageViewRemoveProduct"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/cancel"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"/>
 </RelativeLayout>

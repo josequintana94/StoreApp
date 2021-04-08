@@ -1,5 +1,6 @@
 package joseq.storeapp.ui.main.adapter
 
+import android.view.View
 import com.bumptech.glide.Glide
 import joseq.storeapp.R
 import com.xwray.groupie.kotlinandroidextensions.Item
@@ -21,9 +22,15 @@ class ProductItem(val product: Product) : Item() {
                 .into(imageViewProduct)
 
             if (ShoppingCart.productExists(product.id)) {
+                imageViewRemoveProduct.visibility = View.VISIBLE
                 val cartProduct = ShoppingCart.getProduct(product.id)
                 currentQuantity = cartProduct?.quantity
+                imageViewRemoveProduct.setOnClickListener {
+                    cartProduct?.let { it1 -> ShoppingCart.clearItem(it1) }
+                    notifyChanged()
+                }
             } else {
+                imageViewRemoveProduct.visibility = View.GONE
                 currentQuantity = 0
             }
 
@@ -34,6 +41,7 @@ class ProductItem(val product: Product) : Item() {
                 quantity.text = currentQuantity.toString()
                 val cartItem = CartItem(product, 1)
                 ShoppingCart.addItem(cartItem)
+                notifyChanged()
             }
 
             decrement.setOnClickListener {
@@ -46,6 +54,7 @@ class ProductItem(val product: Product) : Item() {
                         cartProduct?.let { it1 -> ShoppingCart.removeItem(it1) }
                     }
                 }
+                notifyChanged()
             }
         }
     }

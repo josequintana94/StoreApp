@@ -33,6 +33,16 @@ class ShoppingCart {
             saveCart(cart)
         }
 
+        fun clearItem(cartItem: CartItem) {
+            val cart = getCart()
+            val targetItem = cart.singleOrNull { it.product.id == cartItem.product.id }
+
+            if (targetItem != null) {
+                cart.remove(targetItem)
+            }
+            saveCart(cart)
+        }
+
         fun saveCart(cart: MutableList<CartItem>) {
             Paper.book().write("cart", cart)
         }
