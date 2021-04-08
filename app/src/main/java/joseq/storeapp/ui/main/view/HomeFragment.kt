@@ -98,6 +98,7 @@ class HomeFragment : Fragment() {
             when (it.status) {
                 Status.SUCCESS -> {
                     progressBar.visibility = View.GONE
+                    groupAdapter.clear()
 
                     list = it.data?.toMutableList()
                     var groupieList = getProductsList(list!!)
